@@ -26,18 +26,15 @@ docker-build: build-check build-in build-out
 
 # Run the check command
 run-check:
-	@echo "Running check command..."
-	go run $(BASE_DIR)/check/main.go
+	@go run $(BASE_DIR)/check/main.go
 
 # Run the in command
 run-in:
-	@echo "Running in command..."
-	go run $(BASE_DIR)/in/main.go
+	@go run $(BASE_DIR)/in/main.go
 
 # Run the out command
 run-out:
-	@echo "Running out command..."
-	go run $(BASE_DIR)/out/main.go
+	@go run $(BASE_DIR)/out/main.go
 
 # Run this if you want to build all binaries and the docker image
 all: docker-build

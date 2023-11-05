@@ -1,0 +1,14 @@
+{
+  "source": {
+    "branch": "master",
+    "paths": [
+      "py/projects/chitchatprompt",
+      "concourse/scripts"
+    ],
+    "repo": {
+      "owner": "opendoor-labs",
+      "name": "code"
+    },
+    "auth-token": "REPLACED_BY_ENV_VARIABLE_SEE_README"
+  }
+}
