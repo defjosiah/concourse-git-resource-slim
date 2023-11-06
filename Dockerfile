@@ -1,8 +1,7 @@
-# Start from a golang base image
-FROM golang:1.18 as builder
+FROM golang:1.20 as builder
 
 # Set the Current Working Directory inside the container
-WORKDIR /go/src/your-package-name
+WORKDIR /go/src/github.com/defjosiah/concourse-git-resource-slim
 
 # Copy everything from the current directory to the PWD (Present Working Directory) inside the container
 COPY . .
@@ -14,7 +13,9 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /opt/resource/out ./cmd/out/main.go
 
 # Use a small image
 FROM alpine:latest  
-RUN apk --no-cache add ca-certificates
+
+# Install ca-certificates and tar
+RUN apk --no-cache add ca-certificates tar
 
 WORKDIR /root/
 

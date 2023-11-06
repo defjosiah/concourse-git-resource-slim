@@ -22,7 +22,11 @@ build-out:
 # Build the Docker image
 docker-build: build-check build-in build-out
 	@echo "Building Docker image..."
-	docker build -t $(DOCKER_IMAGE_NAME) .
+	docker build -t $(DOCKER_IMAGE_NAME):latest .
+
+docker-push: docker-build
+	@echo "Pushing Docker image..."
+	docker push $(DOCKER_IMAGE_NAME):latest
 
 # Run the check command
 run-check:
