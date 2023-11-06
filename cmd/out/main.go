@@ -8,8 +8,25 @@ import (
 )
 
 type OutRequest struct {
-	Source map[string]interface{} `json:"source"`
-	Params map[string]string      `json:"params"`
+	Params  map[string]string `json:"params"`
+	Source  Source            `json:"source"`
+	Version *Version          `json:"version,omitempty"`
+}
+
+type Repository struct {
+	Owner string `json:"owner"`
+	Name  string `json:"name"`
+}
+
+type Source struct {
+	Branch    string     `json:"branch"`
+	Paths     []string   `json:"paths"`
+	Repo      Repository `json:"repo"`
+	AuthToken string     `json:"auth-token"`
+}
+
+type Version struct {
+	Ref string `json:"ref"`
 }
 
 func main() {
@@ -27,6 +44,11 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Placeholder for out logic
-	fmt.Println("Out logic not implemented")
+	// Write the version to stdout
+	output, err := json.Marshal(request.Version)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Failed to marshal JSON: %s\n", err)
+		os.Exit(1)
+	}
+	fmt.Fprintf(os.Stdout, "%s", output)
 }

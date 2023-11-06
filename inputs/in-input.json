@@ -1,10 +1,17 @@
 {
   "source": {
-    "uri": "git://some-uri",
-    "branch": "develop",
-    "private_key": "..."
+    "branch": "master",
+    "paths": [
+      "py/projects/chitchatprompt",
+      "concourse/scripts"
+    ],
+    "repo": {
+      "owner": "opendoor-labs",
+      "name": "code"
+    },
+    "auth-token": "REPLACED_BY_ENV_VARIABLE_SEE_README"
   },
   "version": {
-    "ref": "61cebf"
+    "ref": "a0c5fa2d7646d4488c1009c2dfa68a6f9079819d"
   }
 }

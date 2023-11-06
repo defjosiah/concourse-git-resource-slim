@@ -168,5 +168,5 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Failed to marshal JSON: %s\n", err)
 		os.Exit(1)
 	}
-	fmt.Println(string(output))
+	fmt.Fprintf(os.Stdout, "%s", output)
 }

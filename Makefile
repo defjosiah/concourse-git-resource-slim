@@ -30,7 +30,7 @@ run-check:
 
 # Run the in command
 run-in:
-	@go run $(BASE_DIR)/in/main.go
+	@go run $(BASE_DIR)/in/main.go ./tmp/in
 
 # Run the out command
 run-out:
